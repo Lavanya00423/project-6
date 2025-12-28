@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>E-Learning App UI</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+body{
+    font-family: Arial, sans-serif;
+    background:#f0f4f8;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    min-height:100vh;
+}
+.app{
+    width:360px;
+    background:#fff;
+    border-radius:20px;
+    padding:20px;
+    box-shadow:0 15px 30px rgba(0,0,0,0.15);
+}
+h2{text-align:center;color:#0d47a1;}
+.screen{display:none;}
+.screen.active{display:block;}
+
+.course{
+    background:#e3f2fd;
+    padding:15px;
+    border-radius:12px;
+    margin-bottom:10px;
+}
+.progress{
+    height:8px;
+    background:#ccc;
+    border-radius:5px;
+}
+.bar{
+    width:70%;
+    height:100%;
+    background:#0d47a1;
+    border-radius:5px;
+}
+button{
+    width:100%;
+    padding:10px;
+    margin-top:10px;
+    background:#0d47a1;
+    color:white;
+    border:none;
+    border-radius:10px;
+}
+.option{
+    background:#f1f5ff;
+    padding:10px;
+    border-radius:8px;
+    margin-top:8px;
+}
+</style>
+</head>
+
+<body>
+<div class="app">
+
+<!-- HOME -->
+<div class="screen active" id="home">
+<h2>Courses</h2>
+<div class="course" onclick="openScreen('details')">
+<h4>Web Development</h4>
+<p>HTML, CSS, JavaScript</p>
+<div class="progress"><div class="bar"></div></div>
+</div>
+</div>
+
+<!-- COURSE DETAILS -->
+<div class="screen" id="details">
+<h2>Course Details</h2>
+<p>Learn full-stack web development</p>
+<button onclick="openScreen('video')">Start Lesson</button>
+</div>
+
+<!-- VIDEO -->
+<div class="screen" id="video">
+<h2>Video Lesson</h2>
+<div class="course">📺 Video Player Area</div>
+<button onclick="openScreen('quiz')">Take Quiz</button>
+</div>
+
+<!-- QUIZ -->
+<div class="screen" id="quiz">
+<h2>Quick Quiz</h2>
+<p>HTML stands for?</p>
+<div class="option">Hyper Text Markup Language</div>
+<div class="option">High Text Machine Language</div>
+<div class="option">Hyper Tool Markup</div>
+<button onclick="openScreen('home')">Finish</button>
+</div>
+
+</div>
+
+<script>
+function openScreen(id){
+document.querySelectorAll('.screen').forEach(s=>s.classList.remove('active'));
+document.getElementById(id).classList.add('active');
+}
+</script>
+</body>
+</html>
